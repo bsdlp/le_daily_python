@@ -34,7 +34,9 @@ def get_tdp_api_key():
     cfg = configparser.RawConfigParser()
     cfg.read(paths)
 
-    if cfg.has_section('Credentials'):
+    if 'TDP_API_KEY' in os.environ:
+        api_key = os.environ['TDP_API_KEY']
+    elif cfg.has_section('Credentials'):
         api_key = cfg.get('Credentials', 'api_key')
 
     if api_key:
