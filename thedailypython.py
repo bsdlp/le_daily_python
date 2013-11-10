@@ -26,7 +26,7 @@ def get_tdp_api_key():
     if 'TDP_CONFIG' in os.environ:
         paths = [os.environ['TDP_CONFIG']]
     else:
-        paths = ['/etc/tdp.cfg', '~/.tdp']
+        paths = ['~/.tdp']
 
     paths = [os.path.expandvars(p) for p in paths]
     paths = [os.path.expanduser(p) for p in paths]
