@@ -7,7 +7,7 @@ import requests
 
 url = 'http://tdp.me/v1'
 
-class Config_Opts(object):
+class config_opts(object):
     """
     Config stuff go here?
     """
