@@ -53,5 +53,3 @@ def get_tdp_api_key():
     else:
         return False
 
-headers = {'X-Access-Token': api_key}
-
