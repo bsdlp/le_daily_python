@@ -7,6 +7,14 @@ import requests
 
 url = 'http://tdp.me/v1'
 
+class tdp_auth(requests.auth.AuthBase):
+    def __init__(self, api_key):
+        self.api_key = api_key
+
+    def __call__(self, r):
+        r.headers['X-Access-Token'] = self.api_key
+        return r
+
 class config_opts(object):
     """
     Config stuff go here?
