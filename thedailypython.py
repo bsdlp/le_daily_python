@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import os
-import json
 import configparser
 import requests
 
 url = 'http://tdp.me/v1'
+
 
 class tdp_auth(requests.auth.AuthBase):
     def __init__(self, api_key):
@@ -14,6 +14,7 @@ class tdp_auth(requests.auth.AuthBase):
     def __call__(self, r):
         r.headers['X-Access-Token'] = self.api_key
         return r
+
 
 class config_opts(object):
     """
@@ -48,7 +49,7 @@ def get_tdp_api_key():
         api_key = cfg.get('Credentials', 'api_key')
 
     if api_key:
-        Config_Opts(api_key)
+        config_opts(api_key)
         return True
     else:
         return False
