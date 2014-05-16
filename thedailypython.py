@@ -7,7 +7,7 @@ import requests
 url = 'http://tdp.me/v1'
 
 
-class tdp_auth(requests.auth.AuthBase):
+class Authentication(requests.auth.AuthBase):
     def __init__(self, api_key):
         self.api_key = api_key
 
@@ -16,13 +16,16 @@ class tdp_auth(requests.auth.AuthBase):
         return r
 
 
-class config_opts(object):
+class Config(object):
     """
     Config stuff go here?
     """
 
     def __init__(self, api_key=None):
         self.api_key = api_key
+
+
+tdp_config = Config()
 
 
 def get_tdp_api_key():
@@ -49,7 +52,7 @@ def get_tdp_api_key():
         api_key = cfg.get('Credentials', 'api_key')
 
     if api_key:
-        config_opts(api_key)
+        tdp_config.api_key = api_key
         return True
     else:
         return False
